@@ -8,5 +8,5 @@ import org.junit.platform.suite.api.Suite;
 @SelectPackages("org.example")
 @IncludeTags({"sum"})
 //@ExcludeTags("param")
-public class sum{
+public class sum {
 }

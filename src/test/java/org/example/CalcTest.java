@@ -7,15 +7,17 @@ import org.junit.jupiter.params.provider.CsvSource;
 class CalcTest {
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() {
         System.out.println("Before All");
     }
 
-    @BeforeEach void setupEach(){
+    @BeforeEach
+    void setupEach() {
         System.out.println("Before Each");
     }
 
-    @AfterAll static void setUpAll(){
+    @AfterAll
+    static void setUpAll() {
         System.out.println("After All");
     }
 
@@ -38,18 +40,19 @@ class CalcTest {
         Assertions.assertEquals(11, result, "assertion failed due to an incorrect result of the sum");
     }
 
-    @ParameterizedTest (name = "#{index} - sum {0} and {1}, expect {2}")
+    @ParameterizedTest(name = "#{index} - sum {0} and {1}, expect {2}")
     @DisplayName("Check of the sum")
-    @CsvSource ({"1, 2, 3", "-1, 2, 1", "0, 0, 0"})
+    @CsvSource({"1, 2, 3", "-1, 2, 1", "0, 0, 0"})
     @Tag("sum")
     void summ3(int a, int b, int expectedResult) {
         Calc calc = new Calc();
         int sumResult = calc.summ(a, b);
         Assertions.assertEquals(expectedResult, sumResult, "assertion failed due to an incorrect result of the sum");
     }
-    @ParameterizedTest (name = "#{index} - subtract {1} from {0}, expect {2}")
+
+    @ParameterizedTest(name = "#{index} - subtract {1} from {0}, expect {2}")
     @DisplayName("Check of the subtraction")
-    @CsvSource ({"10, 5, 5", "-1, -2, 1", "0, 0, 0"})
+    @CsvSource({"10, 5, 5", "-1, -2, 1", "0, 0, 0"})
     @Tag("sub")
     void sub(int a, int b, int expectedResult) {
         Calc calc = new Calc();
